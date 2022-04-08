@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.0.xsd">
+
+	<changeSet id="1" author="anchtun1212">
+		<sql>
+			create table product (
+			id serial4 not null,
+			name varchar(255) not null,
+			price double precision not null,
+			explanation varchar(255) not null,
+			constraint pk_product_id primary key(id)
+			);
+		</sql>
+		<rollback>
+			drop table product;
+		</rollback>
+	</changeSet>
+	<changeSet id="2" author="anchtun1212">
+		<sql>
+			insert into product (name, price, explanation) values('Iphone',2500,'Great mobile phone');
+			insert into product (name, price, explanation) values('Ipad',1500,'Great Ipad');
+			insert into product (name, price, explanation) values('Tablet',1000,'Tablet	16 inch from Huawei');
+			insert into product (name, price, explanation) values('TV',3000,'Sony TV 56 inch');
+			insert into product (name, price, explanation) values('Ipod',150,'Great Ipod');
+		</sql>
+		<rollback>
+			truncate table product;
+		</rollback>
+	</changeSet>
+</databaseChangeLog>
