@@ -22,7 +22,7 @@ Base URL = http://localhost:8496/products
 
 [DELETE to delete product by id] : http://localhost:8496/products/{id}
 
-# You can use postman to test URLs and you can import this file: Spring local.postman_collection.json
+# You can use postman to test URLs and you can import this collection: Spring local.postman_collection.json
 
 
 
